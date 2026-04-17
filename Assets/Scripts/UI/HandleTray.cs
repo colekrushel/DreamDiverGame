@@ -8,6 +8,8 @@ public class HandleTray : MonoBehaviour
     [SerializeField] GameObject appStoreContainer;
     [SerializeField] static GameObject desktopContainer;
     [SerializeField] int highestUIIndex; //index ui components should be set to to appear as the highest sibling but without blocking cursor/tray
+    [SerializeField] Sprite closedBox;
+    [SerializeField] Sprite openBox;
 
     private void Awake()
     {
@@ -33,7 +35,8 @@ public class HandleTray : MonoBehaviour
         GameObject icon = gameObject.transform.Find("Icons").transform.Find(windowName + "Icon").gameObject;
         if (icon == null) return;
         GameObject background = icon.transform.Find("BG").gameObject;
-        StartCoroutine(UIUtils.fadeObject(background, false, (float)0.1));
+        background.GetComponent<Image>().sprite = closedBox;
+        //StartCoroutine(UIUtils.fadeObject(background, false, (float)0.1));
         //disable corresponding window
         GameObject window = GameObject.Find("PlayerUI").transform.Find(windowName).gameObject;
         StartCoroutine(UIUtils.fadeObject(window, false, (float)0.1));
@@ -48,7 +51,8 @@ public class HandleTray : MonoBehaviour
         if (window.GetComponent<CanvasGroup>().alpha != 0) return;
         //activate corresponding icon
         GameObject background = icon.transform.Find("BG").gameObject;
-        StartCoroutine(UIUtils.fadeObject(background, true, (float)0.1));
+        background.GetComponent<Image>().sprite = openBox;
+        //StartCoroutine(UIUtils.fadeObject(background, true, (float)0.1));
         //re-enable corresponding window
         window.GetComponent<Canvas>().enabled = true;
         StartCoroutine(UIUtils.fadeObject(window, true, (float)0.1));
