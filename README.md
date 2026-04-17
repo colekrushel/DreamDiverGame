@@ -1,2 +1,3 @@
-# dungeoncrawlerDemo
-Practicing gamedev by developing my own 3D dungeon-crawler! In very early stages, but has basic movement and grid creation.
+# DreamDiver
+Learning gamedev by implementing a game from scratch! DreamDiver is a first-person, grid-based action game that has the player navigating dungeons, fighting enemies with the cursor, and collecting equipment and currency to become stronger.
+As of Janurary, the game is in a playable 'alpha' state, meaning that there is a start, an end, and a tangible amount of content across a functional gameplay loop. Admittedly, many features are placeholder/barely implemented, and as this is my first foray into many aspects of game development (basically every part other than programming) tune your expectations, but it is playable! Stay tuned for more updates... eventually!
