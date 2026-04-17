@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -51,6 +52,11 @@ public class HandleSkillBar : MonoBehaviour
         if (GameObject.Find("placeholder") != null)
         {
             Destroy(GameObject.Find("placeholder"));
+        }
+        //add numbers
+        if (!Instance.transform.parent.Find("skillNumbers").gameObject.activeSelf)
+        {
+            Instance.transform.parent.Find("skillNumbers").gameObject.SetActive(true);
         }
         GameObject sbox = Instantiate(Resources.Load<GameObject>("Prefabs/UI/SkillBox"));
         sbox.transform.Find("Icon").GetComponent<Image>().sprite = s.icon;

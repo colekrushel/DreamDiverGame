@@ -48,6 +48,9 @@ public class HandleHealthDisplay : MonoBehaviour
         {
             GameObject chitpoint = Instantiate<GameObject>(Resources.Load<GameObject>("Prefabs/UI/ActiveHitpoint"));
             chitpoint.transform.SetParent(currentParent.transform, false);
+            //match idle animation playback time to the rest
+            chitpoint.GetComponent<Animator>().Play(0, -1, currentParent.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime);
+            chitpoint.transform.SetParent(currentParent.transform, false);
         }
     }
 

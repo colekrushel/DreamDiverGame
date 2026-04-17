@@ -6,10 +6,10 @@ public class AudioManager : MonoBehaviour
 
     public static MonoBehaviour Instance { get; private set; }
     public static AudioSource audioSource;
-    private static float stepVol = 1f;
+    private static float stepVol = .7f;
     private static float atkVol = 1f;
-    private static float hitVol = 1f;
-    private static float UIVol = 1f;
+    private static float hitVol = .7f;
+    private static float UIVol =.7f;
     //load each sfx in once
     private static AudioClip grassWalk;
     private static List<AudioClip> stoneWalks = new List<AudioClip>();
@@ -20,6 +20,7 @@ public class AudioManager : MonoBehaviour
     private static AudioClip enemyHit;
     private static AudioClip partBreak;
     private static AudioClip UISelect;
+    private static AudioClip projShoot;
 
 
 
@@ -38,6 +39,7 @@ public class AudioManager : MonoBehaviour
         enemyHit = Resources.Load<AudioClip>("Audio/enemyHit");
         partBreak = Resources.Load<AudioClip>("Audio/partBreak");
         UISelect = Resources.Load<AudioClip>("Audio/UISelect");
+        projShoot = Resources.Load<AudioClip>("Audio/laserShoot");
     }
 
     public static void playFootsteps(bool grass)
@@ -97,5 +99,17 @@ public class AudioManager : MonoBehaviour
     {
         audioSource.pitch = 1f;
         audioSource.PlayOneShot(UISelect, UIVol);
+    }
+
+    public static void playProjectileShoot()
+    {
+        audioSource.pitch = 1f;
+        audioSource.PlayOneShot(projShoot, hitVol);
+    }
+
+    public static void playPhaseTransition()
+    {
+        audioSource.pitch = 1f;
+        audioSource.PlayOneShot(Resources.Load<AudioClip>("Audio/phasetransition"), 1f);
     }
 }

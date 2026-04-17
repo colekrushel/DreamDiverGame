@@ -59,7 +59,9 @@ MonoBehaviour:
   - {fileID: 4910125603542164168}
   - {fileID: 7058296439259335540}
   breakFX: {fileID: 6397834174913037371, guid: c7b7bbc32f85ba846840d2729512567f, type: 3}
+  behavior: 0
   currMovementDir: 
+  transitionAction: {fileID: 0}
 --- !u!1 &2421027852139255706
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,8 +1103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acb1b6fb9ada60749b0400301790b696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPart
-  currentHP: 100
-  maxHP: 100
+  currentHP: 1000
+  maxHP: 1000
   partName: Head
   partModel: {fileID: 5486091617414206628}
   effectiveness: 2

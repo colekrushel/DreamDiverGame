@@ -54,6 +54,8 @@ public class InputHandler : MonoBehaviour
     [SerializeField] GameObject firewall;
     [SerializeField] GameObject deathScreen;
 
+    
+
     void Start()
     {
         Player.loadPlayerInfo();
@@ -182,11 +184,11 @@ public class InputHandler : MonoBehaviour
 
     void OnRestart()
     {
-        if (GameObject.Find("VictoryOverlay") != null) GameObject.Find("VictoryOverlay").SetActive(false);
-        //if player is dead
-        //if(Player.getHP() <= 0)
-        //{
-        Player.orientation = "bottom";
+        
+        //if player is dead or won
+        if (Player.getHP() <= 0 || (GameObject.Find("VictoryOverlay") != null))
+        {
+            Player.orientation = "bottom";
             Player.teleportPlayer(new Vector3(2, 0.5f, 1));
             Player.updatePos(new Vector2(2, 1), 0);
             GridUtils.switchZone("bottom");
@@ -199,8 +201,9 @@ public class InputHandler : MonoBehaviour
             deathScreen.SetActive(false);
         
             Player.respawn();
-        Debug.Log(Player.facing);
-        //}
+        //Debug.Log(Player.facing);
+        }
+        if (GameObject.Find("VictoryOverlay") != null) GameObject.Find("VictoryOverlay").SetActive(false);
     }
 
     //could combine and read numberkey instead
@@ -332,22 +335,22 @@ public class InputHandler : MonoBehaviour
                     break;
 
                 //debug commands
-                case 'c':
-                    isRotating = false;
-                    isMoving = false;
-                    Player.playerObject.transform.eulerAngles = Vector3.zero;
-                    SnapPlayer(0, 0);
-                    break;
-                case 'z':
-                    Debug.Log(Player.currentLayer);
-                    Debug.Log("is moving: " + isMoving);
-                    Debug.Log("is rotating: " + isRotating);
-                    isRotating = false;
-                    isMoving = false;
-                    break;
-                case 'x':
-                    Debug.Log(Player.getPos() + " | " + Player.currentLayer);
-                    break;
+                //case 'c':
+                //    isRotating = false;
+                //    isMoving = false;
+                //    Player.playerObject.transform.eulerAngles = Vector3.zero;
+                //    SnapPlayer(0, 0);
+                //    break;
+                //case 'z':
+                //    Debug.Log(Player.currentLayer);
+                //    Debug.Log("is moving: " + isMoving);
+                //    Debug.Log("is rotating: " + isRotating);
+                //    isRotating = false;
+                //    isMoving = false;
+                //    break;
+                //case 'x':
+                //    Debug.Log(Player.getPos() + " | " + Player.currentLayer);
+                //    break;
 
 
             }
@@ -426,6 +429,20 @@ public class InputHandler : MonoBehaviour
                         grid = grids[Player.currentLayer];
                         EnemyManager.zoneSwitch(destZone);
                         UIUtils.updateMap();
+
+                        if(destZone.ToLower() == "south")
+                        {
+                            //clear statues when entering boss arena
+                            
+                            HandleCellAttack[] cells = GameObject.Find("Layers").GetComponentsInChildren<HandleCellAttack>();
+                            foreach(HandleCellAttack cell in cells)
+                            {
+                                Vector3 pos = cell.gameObject.transform.parent.localPosition;
+                                DungeonCell associatedCell = GridUtils.grids[Player.currentLayer].getCell((int)pos.x, (int)pos.z);
+                                associatedCell.traversible = true;
+                                Destroy(cell.gameObject);
+                            }
+                        }
                     }
 
                     

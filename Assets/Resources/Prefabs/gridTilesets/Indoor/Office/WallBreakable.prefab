@@ -1158,6 +1158,7 @@ MonoBehaviour:
   MaxHP: 5
   breakType: 0
   breakableBy: 0
+  breakValue: 0
 --- !u!1 &2229763779899512286
 GameObject:
   m_ObjectHideFlags: 0
@@ -1230,10 +1231,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 786e413d122a74c41b7d6db8d243dd03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BreakablePart
-  HP: 5
-  MaxHP: 5
+  HP: 1
+  MaxHP: 1
   breakType: 0
   breakableBy: 0
+  breakValue: 0
 --- !u!1 &2248482894946250300
 GameObject:
   m_ObjectHideFlags: 0
@@ -1658,6 +1660,7 @@ MonoBehaviour:
   MaxHP: 5
   breakType: 0
   breakableBy: 0
+  breakValue: 0
 --- !u!1 &3409790072213776468
 GameObject:
   m_ObjectHideFlags: 0
@@ -2310,6 +2313,7 @@ MonoBehaviour:
   MaxHP: 5
   breakType: 0
   breakableBy: 0
+  breakValue: 0
 --- !u!1 &5910633996729433513
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ public class LaunchProjectile : MonoBehaviour
         //rotate because the stinger's x axis is where its point is
         Vector3 directionToTarget = Player.playerObject.transform.position - proj.transform.position;
         proj.transform.rotation = Quaternion.LookRotation(directionToTarget) * Quaternion.Euler(0, -90, 0);
-
+        AudioManager.playProjectileShoot();
     }
 
  

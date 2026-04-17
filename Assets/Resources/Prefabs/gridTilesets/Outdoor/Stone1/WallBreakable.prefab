@@ -640,7 +640,7 @@ MonoBehaviour:
   HP: 1
   MaxHP: 1
   breakType: 0
-  breakableBy: 0
+  breakableBy: 4
   breakValue: 0
 --- !u!1 &5833701610983586431
 GameObject:
@@ -920,7 +920,7 @@ MonoBehaviour:
   HP: 1
   MaxHP: 1
   breakType: 0
-  breakableBy: 0
+  breakableBy: 4
   breakValue: 0
 --- !u!1 &7429830887677848831
 GameObject:
@@ -1160,7 +1160,7 @@ MonoBehaviour:
   HP: 1
   MaxHP: 1
   breakType: 0
-  breakableBy: 0
+  breakableBy: 4
   breakValue: 0
 --- !u!1 &8993082636260112477
 GameObject:
@@ -1289,5 +1289,5 @@ MonoBehaviour:
   HP: 1
   MaxHP: 1
   breakType: 0
-  breakableBy: 0
+  breakableBy: 4
   breakValue: 0

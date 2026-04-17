@@ -17,8 +17,8 @@ MonoBehaviour:
   price: 1000
   skillEffects:
   - rid: 311031170042429505
-  time: 30
-  cooldown: 60
+  time: 10
+  cooldown: 15
   expire: 0
   replaces: {fileID: 11400000, guid: 986cfbc66a07f7844801364b13c7435c, type: 2}
   references:

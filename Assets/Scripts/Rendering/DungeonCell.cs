@@ -158,6 +158,8 @@ public class DungeonCell
             case BreakableConstruct.breakType.Item:
                 //Debug.Log("item broken");
                 //Debug.Log(entity.dataString);
+                //heal player on break
+                Player.healToFull();
                 if( int.TryParse(entity.dataString, out wc))
                 {
                     //currency is contained in the item

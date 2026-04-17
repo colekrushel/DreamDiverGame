@@ -85,7 +85,8 @@ public class AnimateUI : MonoBehaviour
     private static float moveTrayAmt = 0;
     private static float totalMovement = 0;
     private static bool trayUp = true;
-    private static bool forceTrayOn;
+    private static bool forceTrayOn = true;
+    private static bool keepTrayUpNoMatterWhat = true;
     //fade in currency gain/loss display
     private static GameObject currencyChangeObject;
     private TextMeshProUGUI currencyChangeText;
@@ -220,7 +221,7 @@ public class AnimateUI : MonoBehaviour
 
         }
         //handle tray animation up and down
-        if (moveTrayAmt != 0)
+        if (moveTrayAmt != 0 && !keepTrayUpNoMatterWhat)
         {
             iconTray.transform.position = iconTray.transform.position += new Vector3(0, moveTrayAmt, 0) * Time.deltaTime * 100;
             totalMovement += moveTrayAmt * Time.deltaTime * 100;

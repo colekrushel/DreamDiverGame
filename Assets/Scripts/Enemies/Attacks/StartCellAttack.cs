@@ -3,7 +3,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 //script to attach to enemy gameobject that is called from an animationevent to start a cell attack.
 

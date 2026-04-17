@@ -34,6 +34,7 @@ public class Enemy : MonoBehaviour, IHittable
     protected float phaseThreshold; //hp% to trigger a phase transition; on transition, current action will end immediately and play the given transition action.
     [SerializeField] protected EnemyAction transitionAction;
     bool phaseactionoverride = false;
+    bool hasTransitioned = false;
 
     private void Update()
     {
@@ -368,7 +369,7 @@ public class Enemy : MonoBehaviour, IHittable
         ////check if enemy was killed 
         //HP -= damage;
         //Debug.Log("dealt " + damage + " damage to enemy");
-        if (HP < 0)
+        if (HP <= 0)
         {
             //play death animation
             //animator.Play("Death");
@@ -469,9 +470,21 @@ public class Enemy : MonoBehaviour, IHittable
     {
         //for the tree, we want to play the transition action, regenerate all bark, and regenerate the cores.
         //we also want to remove the statue props and spawn enemies instead.
-
+        if (hasTransitioned) return;
         phaseactionoverride = true;
-        //push player away?
+        //push player away
+        if(transitionAction != null)
+        {
+            Player.actionQueue.Add('s');
+            Player.actionQueue.Add('s');
+            Player.actionQueue.Add('s');
+            Player.actionQueue.Add('s');
+            Player.actionQueue.Add('s');
+            AudioManager.playPhaseTransition();
+        }
+        hasTransitioned = true;
+
+
     }
 
     public Vector2 getPos()

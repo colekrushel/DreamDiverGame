@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Slasher2.0
   m_EditorClassIdentifier: 
   equipType: 1
-  baseDamage: 2
+  baseDamage: 4
   shieldHealth: 0
   shieldDecay: 0
   shieldRegen: 0

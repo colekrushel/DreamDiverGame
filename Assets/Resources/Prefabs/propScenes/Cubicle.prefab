@@ -127,6 +127,8 @@ MonoBehaviour:
   HP: 5
   MaxHP: 5
   breakType: 1
+  breakableBy: 0
+  breakValue: 0
 --- !u!1 &2048272244620410478
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,7 +184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0d085fecbe47f1d45825f1f20583b21d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.3
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0d085fecbe47f1d45825f1f20583b21d, type: 3}
       propertyPath: m_LocalPosition.y

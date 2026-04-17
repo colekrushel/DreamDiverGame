@@ -678,6 +678,8 @@ MonoBehaviour:
   positionObject: {fileID: 0}
   enemyActions:
   - {fileID: 11400000, guid: 9be0408283898bf45a248d356db4ad11, type: 2}
+  - {fileID: 11400000, guid: 3b09e1247d8e5cb41b5d110a56bcc440, type: 2}
+  - {fileID: 11400000, guid: 3fc2bde311a69604aafa51b7694fb467, type: 2}
   parts:
   - {fileID: 1145715147760536954}
   breakFX: {fileID: 6397834174913037371, guid: c7b7bbc32f85ba846840d2729512567f, type: 3}
@@ -16094,8 +16096,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acb1b6fb9ada60749b0400301790b696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPart
-  currentHP: 500
-  maxHP: 500
+  currentHP: 5000
+  maxHP: 5000
   partName: TreeInnerPipe
   partModel: {fileID: 742815955045625947}
   effectiveness: 2

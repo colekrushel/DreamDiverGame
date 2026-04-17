@@ -244,10 +244,15 @@ public static class Player
     {
         //respawn player after death
         //position reset is handled by inputhandler
-        
+
+        healToFull();
+        //reset skill cooldowns?
+    }
+
+    static public void healToFull()
+    {
         currentHP = totalHP;
         HandleHealthDisplay.restoreHP();
-        //reset skill cooldowns?
     }
     
 

@@ -35,6 +35,9 @@ public class SkillBox : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
             //refresh stats window to reflect skill changes
             HandleSkillTree.fillStatsWindow(Player.playerStats.generateStatString());
+
+            //play sound
+            AudioManager.playUISelect();
         }
 
     }
