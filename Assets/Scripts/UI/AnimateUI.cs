@@ -102,15 +102,15 @@ public class AnimateUI : MonoBehaviour
 
         }
         //shake boxes
-        if(shakeCount <= 0)
-        {
-            foreach (GameObject box in boxesToShake)
-            {
-                box.transform.localPosition = UnityEngine.Random.insideUnitSphere * 2;
-            }
-            shakeCount = shakeDelay;
-        }
-        shakeCount -= Time.deltaTime;
+        //if(shakeCount <= 0)
+        //{
+        //    foreach (GameObject box in boxesToShake)
+        //    {
+        //        box.transform.localPosition = UnityEngine.Random.insideUnitSphere * 2;
+        //    }
+        //    shakeCount = shakeDelay;
+        //}
+        //shakeCount -= Time.deltaTime;
         //camera shake
         if (shake > 0)
         {
