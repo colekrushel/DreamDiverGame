@@ -148,10 +148,10 @@ public class DungeonCell
                 if(animator != null)
                 {
                     animator.SetTrigger("Open");
-                    Debug.Log("attempting to play anim for breakable wall");
+                    //Debug.Log("attempting to play anim for breakable wall");
                 } else
                 {
-                    Debug.Log("couldnt find aniamtor in breakable wall");
+                   // Debug.Log("couldnt find aniamtor in breakable wall");
                 }
 
                     break;
@@ -169,7 +169,7 @@ public class DungeonCell
                     //equipment is contained in the item
                     try
                     {
-                        Debug.Log("attempting to give player equipment " + entity.dataString);
+                        //Debug.Log("attempting to give player equipment " + entity.dataString);
                         Player.inventory.addItem(entity.dataString, "breacher");
                         //display popup
                         GameObject popupcontainer = GameObject.Find("PlayerUI").transform.Find("ItemPopup").gameObject;
@@ -178,7 +178,7 @@ public class DungeonCell
                         popupcontainer.SetActive(true);
                         HandleEquipment.displayEquips();
                     } catch {
-                        Debug.Log("equipment failed, distributing upgrade instead");
+                        //Debug.Log("equipment failed, distributing upgrade instead");
                         if(entity.dataString == "WeaponUpgrade")
                         {
                             HandleEquipment.onUpgradeObtain();

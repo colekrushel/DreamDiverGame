@@ -6,10 +6,10 @@ public class AudioManager : MonoBehaviour
 
     public static MonoBehaviour Instance { get; private set; }
     public static AudioSource audioSource;
-    private static float stepVol = .7f;
-    private static float atkVol = 1f;
-    private static float hitVol = .7f;
-    private static float UIVol =.7f;
+    private static float stepVol = .5f;
+    private static float atkVol = .8f;
+    private static float hitVol = .5f;
+    private static float UIVol =.5f;
     //load each sfx in once
     private static AudioClip grassWalk;
     private static List<AudioClip> stoneWalks = new List<AudioClip>();

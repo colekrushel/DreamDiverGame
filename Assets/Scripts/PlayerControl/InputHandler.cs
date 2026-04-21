@@ -513,6 +513,7 @@ public class InputHandler : MonoBehaviour
         Vector2 newpos = GridUtils.getTransportDestinationCoord(playerPos, playerFacing, Player.orientation);
         Player.updatePos(newpos, GridUtils.getHighestTraversibleLayer(newpos, destZone));
         isMoving = true;
+        
         //setup rotation
         isRotating = true;
         startRotation = Player.playerObject.transform.rotation;
@@ -526,9 +527,12 @@ public class InputHandler : MonoBehaviour
         UIUtils.updateMap();
         //remove tutorial gameobjects
         Destroy(GameObject.Find("tutorialskybox"));
+        Destroy(GameObject.Find("tutorial"));
         //adjust lighting
         RenderSettings.ambientIntensity = 1.8f;
         yield return new WaitForSeconds(1);
+        //check if player movement messes up
+        if (Player.playerObject.transform.position.x > 100 || Player.playerObject.transform.position.y > 100 || Player.playerObject.transform.position.z > 100) Player.teleportPlayer(new Vector3(2, 0.5f, 1));
         //fade out
         StartCoroutine(UIUtils.fadeObject(screencover, false, .2f));
         yield return new WaitForSeconds(0.5f);
@@ -650,6 +654,7 @@ public class InputHandler : MonoBehaviour
 
     void OnLeftDown(InputValue value)
     {
+        if (Player.inputLock) return;
         if (Player.leftItem != null && Player.leftItem.equipType == EquipmentItem.type.Shield)
         {
             startBlock();
@@ -664,6 +669,7 @@ public class InputHandler : MonoBehaviour
 
     void OnLeftUp(InputValue value)
     {
+        if (Player.inputLock) return;
         //Vector2 startPos = Mouse.current.position.ReadValue();
         Vector2 startPos = Input.mousePosition;
         float diff = Mathf.Abs(startPos.x - leftStartPos.x + startPos.y - leftStartPos.y);
@@ -672,6 +678,7 @@ public class InputHandler : MonoBehaviour
 
     void OnRightDown(InputValue value)
     {
+        if (Player.inputLock) return;
         //only handle if weapon upgrade is obtained.
         if (!HandleEquipment.getUpgradeStatus()) return;
         //if shield equipped then handle it now
@@ -689,6 +696,7 @@ public class InputHandler : MonoBehaviour
 
     void OnRightUp(InputValue value)
     {
+        if (Player.inputLock) return;
         //only handle if weapon upgrade is obtained.
         if (!HandleEquipment.getUpgradeStatus()) return;
         //Vector2 startPos = Mouse.current.position.ReadValue();

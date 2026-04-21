@@ -16,7 +16,7 @@ public class CursorListener : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             case "DesktopIcon":
                 //for desktop icons we want to display the background on hover
                 //this.transform.Find("BackgroundOverlay").gameObject.SetActive(true); //assume background is a child of this object
-                StartCoroutine(UIUtils.fadeObject(this.transform.Find("BackgroundOverlay").gameObject, true, .2f));
+                //StartCoroutine(UIUtils.fadeObject(this.transform.Find("BackgroundOverlay").gameObject, true, .2f));
                 break;
         }
         HandleCursorOverlay.setState(cursorStateOnHover);
@@ -32,7 +32,7 @@ public class CursorListener : MonoBehaviour, IPointerEnterHandler, IPointerExitH
                 break;
             case "DesktopIcon":
                 //this.transform.Find("BackgroundOverlay").gameObject.SetActive(true); //assume background is a child of this object
-                StartCoroutine(UIUtils.fadeObject(this.transform.Find("BackgroundOverlay").gameObject, false, .2f));
+               // StartCoroutine(UIUtils.fadeObject(this.transform.Find("BackgroundOverlay").gameObject, false, .2f));
                 break;
         }
         HandleCursorOverlay.setState(HandleCursorOverlay.cursorState.none);
